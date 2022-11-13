@@ -1,0 +1,17 @@
+@charset "utf-8";
+
+img {
+    max-width: 100%;
+}
+
+body {
+    margin: 0;
+}
+
+p {
+    margin: 0;
+}
+
+* {
+    box-sizing: border-box;
+}
