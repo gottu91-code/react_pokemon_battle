@@ -5,6 +5,7 @@ import { Reset } from "./components/Reset";
 import { Result } from "./components/Result";
 import './css/common.css';
 import classes from './css/App.module.css';
+import { Version } from "./components/Version";
 
 function App() {
   const defaultHpPokemon1 = 340;
@@ -71,9 +72,11 @@ function App() {
       img: 'https://zukan.pokemon.co.jp/zukan-api/up/images/index/72c82f8be362d1b53ae308d706728411.png',
       hp: pokemon1Hp,
       wazaList: {
-        'シャドーボール (70ダメージ)': () => { attack(2, 70) },
         'シャドークロー (60ダメージ)': () => { attack(2, 60) },
-        'ヘドロばくだん (90ダメージ)': () => { attack(2, 90) },
+        'あくのはどう (80ダメージ)': () => { attack(2, 80) },
+        'サイコキネシス (90ダメージ)': () => { attack(2, 90) },
+        'きあいだま (140ダメージ)': () => { attack(2, 140) },
+        'キズぐすり(40回復)': () => { attack(1, -50) },
       }
     }, {
       id: 2,
@@ -81,9 +84,11 @@ function App() {
       img: 'https://zukan.pokemon.co.jp/zukan-api/up/images/index/5bb0cfd44302cd4df0c0c88d37457931.png',
       hp: pokemon2Hp,
       wazaList: {
-        '10万ボルト (80ダメージ)': () => { attack(1, 80) },
         '電気ショック (50ダメージ)': () => { attack(1, 50) },
-        '体当たり (30ダメージ)': () => { attack(1, 30) },
+        '10万ボルト (80ダメージ)': () => { attack(1, 80) },
+        'かみなり (110ダメージ)': () => { attack(1, 110) },
+        'ボルテッカー (120ダメージ)': () => { attack(1, 120) },
+        'キズぐすり(40回復)': () => { attack(2, -50) },
       }
     }
   ]
@@ -97,6 +102,7 @@ function App() {
           <p>VS</p>
           <Pokemon fighter={pokemonList[1]} isActiveWazaButton={isActiveWazaButton} isTurn={isTurnPokemon2} changeTurn={changeTurn} />
         </Field>
+        <Version />
       </div>
   );
 }
