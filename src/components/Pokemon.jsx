@@ -1,8 +1,8 @@
 import classes from '../css/Pokemon.module.css';
 
 export const Pokemon = (props) => {
-    const {name, img, hp, wazaList} = props.fighter;
-    const { isTurn, changeTurn } = props;
+    const {name, img, hp, wazaList, isTurn} = props.fighter;
+    const { changeTurn } = props;
 
     return (
         <div className={classes.pokemon}>

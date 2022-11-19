@@ -77,7 +77,8 @@ function App() {
         'サイコキネシス (90ダメージ)': () => { attack(2, 90) },
         'きあいだま (140ダメージ)': () => { attack(2, 140) },
         'キズぐすり(40回復)': () => { attack(1, -50) },
-      }
+      },
+      isTurn: isTurnPokemon1,
     }, {
       id: 2,
       name: 'ピカチュウ',
@@ -89,7 +90,8 @@ function App() {
         'かみなり (110ダメージ)': () => { attack(1, 110) },
         'ボルテッカー (120ダメージ)': () => { attack(1, 120) },
         'キズぐすり(40回復)': () => { attack(2, -50) },
-      }
+      },
+      isTurn: isTurnPokemon2,
     }
   ]
 
@@ -98,9 +100,9 @@ function App() {
         <Field>
           <Result isShowResult={isShowResult} winnerName={winnerName}/>
           <Reset isShowResetButton={isShowResetButton} reset={reset} />
-          <Pokemon fighter={pokemonList[0]} isActiveWazaButton={isActiveWazaButton} isTurn={isTurnPokemon1} changeTurn={changeTurn} />
-          <p>VS</p>
-          <Pokemon fighter={pokemonList[1]} isActiveWazaButton={isActiveWazaButton} isTurn={isTurnPokemon2} changeTurn={changeTurn} />
+          {pokemonList.map((pokemon, index) => {
+            return <Pokemon fighter={pokemon} isActiveWazaButton={isActiveWazaButton} changeTurn={changeTurn} />
+          })}
         </Field>
         <Version />
       </div>
